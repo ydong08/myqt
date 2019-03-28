@@ -17,18 +17,18 @@ Item {
 
         spacing: 8
         Repeater {
-            model: 10
+            model: ["BeiJing","ShangHai","GuangZhou","ShenZhen","ChongQing","NanJing","SuZhou","HangZhou"]
 
             Rectangle {
-                width: 100
+                width: 120
                 height: 50
 
                 radius: 3
                 color: "lightgray"
 
                 Text {
-                    anchors.centerIn: parent
-                    text: index
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: index + ":  " + modelData
                 }
             }
         }
