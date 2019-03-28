@@ -1,4 +1,19 @@
 
+
+/*
+ state:
+        A state is a set of batched changes from the default configuration. Which always work together with PropertyChanges .
+
+PropertyChanges:
+        PropertyChanges is used to define the property values or bindings in a State.
+        This enables an item's property values to be changed when it changes between states.
+        To create a PropertyChanges object, specify the target item whose properties are to be modified, and define the new property values or bindings.
+
+ PropertyAction:
+       PropertyAction is used to specify an immediate property change during an animation. The property change is not animated.
+       It is useful for setting non-animated property values during an animation.
+*/
+
 import QtQuick 2.0
 
 Item {
@@ -64,10 +79,13 @@ Item {
         loops: Animation.Infinite
         PropertyAction {target: root; property: "state"; value: "redlight"}
         PropertyAnimation {target: root; from : ""; to: "redlight"; duration:2000}
+
         PropertyAction {target: root; property: "state"; value: "yellowlight"}
         PropertyAnimation {target: root; from : "redlight"; to: "yellowlight";duration:300}
+
         PropertyAction {target: root; property: "state"; value: "greenlight"}
         PropertyAnimation {target: root; from : "yellowlight"; to: "greenlight";duration:3000}
+
         PropertyAction {target: root; property: "state"; value: "yellowlight"}
         PropertyAnimation {target: root; from : "greenlight"; to: "yellowlight";duration:300}
     }
