@@ -17,7 +17,7 @@ Item {
 
         spacing: 8
         Repeater {
-            model: ["BeiJing","ShangHai","GuangZhou","ShenZhen","ChongQing","NanJing","SuZhou","HangZhou"]
+            model: 10
 
             Rectangle {
                 width: 120
@@ -28,7 +28,7 @@ Item {
 
                 Text {
                     anchors.verticalCenter: parent.verticalCenter
-                    text: index + ":  " + modelData
+                    text: index
                 }
             }
         }
