@@ -69,6 +69,6 @@ Item {
         PropertyAction {target: root; property: "state"; value: "greenlight"}
         PropertyAnimation {target: root; from : "yellowlight"; to: "greenlight";duration:3000}
         PropertyAction {target: root; property: "state"; value: "yellowlight"}
-        PropertyAnimation {target: root; from : "redlight"; to: "yellowlight";duration:300}
+        PropertyAnimation {target: root; from : "greenlight"; to: "yellowlight";duration:300}
     }
 }
