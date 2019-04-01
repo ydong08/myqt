@@ -15,6 +15,7 @@ Rectangle	{
         delegate:	numberDelegate
         spacing: 5
         orientation: ListView.Horizontal  // horizontal ListView
+        layoutDirection: Qt.RightToLeft   // element display orientation
     }
 
     Component	{
