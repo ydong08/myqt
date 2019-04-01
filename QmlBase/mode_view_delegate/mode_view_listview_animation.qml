@@ -32,8 +32,8 @@ Rectangle	{
         id: headerDelegate
 
         Rectangle {
-            width: ListView.view.width
-            height: ListView.view.height/2
+            width: 80//ListView.view.width
+            height: 20//ListView.view.height
             radius: 6
             color: "green"
 
@@ -50,8 +50,8 @@ Rectangle	{
         id: footerDelegate
 
         Rectangle {
-            width:  ListView.view.width
-            height: ListView.view.height/2
+            width:  80//ListView.view.width
+            height: 20//ListView.view.height
             radius: 6
             color: "blue"
 
@@ -64,12 +64,28 @@ Rectangle	{
     }
 
     Component {
-        id: highDelegate
+        id:	highDelegate
 
-        Rectangle {
-            height: ListView.view.width
-            radius: 6
-            color: "lightgreen"
+        Item	{
+            width:	ListView.view.width
+            height:	ListView.view.currentItem.height
+
+            y:	ListView.view.currentItem.y
+
+            Rectangle	{
+                id:	highlightRectangle
+                anchors.fill: parent
+                radius: 6
+                color: "lightgreen"
+            }
+
+            Behavior	on	y	{
+                SequentialAnimation	{
+                    PropertyAnimation	{	target:	highlightRectangle;	property: "color";  to: "lightgreen" }
+                    NumberAnimation	{	duration: 1	}
+                    PropertyAnimation	{	target:	highlightRectangle;	property: "color"; to: "white" }
+                }
+            }
         }
     }
 
