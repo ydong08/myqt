@@ -6,16 +6,16 @@ Rectangle {
 
     id: root
 
-    width:  240
+    width:  120
     height: 300
     color: "white"
 
     ListView {
         anchors.fill: parent
-        anchors.margins: 40
+        anchors.margins: 20
         model: 10
         delegate: numberDelegate
-        spacing: 8
+        spacing: 5
         focus: true
     }
 
@@ -23,8 +23,8 @@ Rectangle {
         id: numberDelegate
 
         Rectangle {
-            width: 80
-            height: 80
+            width: ListView.view.width
+            height: 40
             radius: 8
             color: ListView.isCurrentItem ? "green" : "lightgreen"
 
