@@ -71,7 +71,7 @@ Rectangle {
             width: 40
             height: 40
             radius: 8
-            color: ListView.isCurrentItem ? "green" : "lightgreen"
+            color: "lightgreen"
 
             Text {
                 anchors.centerIn: parent
