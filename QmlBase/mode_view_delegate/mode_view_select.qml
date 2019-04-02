@@ -16,6 +16,7 @@ Rectangle {
         model: 10
         delegate: numberDelegate
         spacing: 8
+        focus: true
     }
 
     Component {
