@@ -19,6 +19,7 @@ Rectangle {
     }
 
     ListView {
+        id: listview
         anchors.fill: parent
         anchors.margins: 20
         spacing: 8
@@ -33,7 +34,7 @@ Rectangle {
 
         Item {
             id: wraper
-            width: ListView.view.width
+            width: listview.width
             height: 60
 
             Rectangle {
@@ -41,7 +42,7 @@ Rectangle {
                 width: parent.width - 60
                 height: 60
                 radius: 8
-                color: "black"
+                color: "lightgray"
 
                 Text {
                     anchors.left: parent.left
@@ -126,12 +127,23 @@ Rectangle {
             states: [
                 State {
                     name: "expand"
-                    PropertyChanges {target: wraper; height: ListView.view.height}
-                    //PropertyChanges {target: viewpicture; }
+                    PropertyChanges {target: wraper; height: listview.height}
+                    PropertyChanges {target: viewpicture; width:listview.width; height: listview.width; anchors.topMargin:0; anchors.rightMargin: 0}
                     PropertyChanges {target: viewfacts; opacity: 1}
                     PropertyChanges {target: closeButton; opacity: 1}
+                    //PropertyChanges { target: wrapper.ListView.view; contentY: wrapper.y; interactive: false }
                 }
             ]
+
+            transitions: [
+                Transition {
+                    NumberAnimation {
+                        duration: 200
+                        properties: "height, width,anchors.rightMargin, anchors.topMargin,opacity,contentY"
+                    }
+                }
+            ]
+
         }
     }
 }
