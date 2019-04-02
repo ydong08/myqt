@@ -84,7 +84,8 @@ Rectangle {
                 anchors.fill: parent
 
                 onClicked:  {
-                    if (! modelDelegate.GridView.delayRemove)
+                    /* GridView.delayRemove 附加属性,位于每一个代理实例中 */
+                    if (! wraper.GridView.delayRemove)
                         theModel.remove(index)
                 }
             }
