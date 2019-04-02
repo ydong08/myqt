@@ -43,7 +43,8 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked:  {
-                theModel.append({"number": ++parent.count});
+                // theModel.append({"number": ++parent.count}); // OK
+                theModel.append({number: ++parent.count});
             }
         }
 
@@ -57,14 +58,14 @@ Rectangle {
         anchors.bottomMargin: 80
         clip: true
         model: theModel
-        delegate: modeDelegate
+        delegate: modelDelegate
 
         cellHeight: 45
         cellWidth: 45
     }
 
     Component {
-        id: modeDelegate
+        id: modelDelegate
 
         Rectangle {
             id: wraper
@@ -83,7 +84,7 @@ Rectangle {
                 anchors.fill: parent
 
                 onClicked:  {
-                    if (! modeDelegate.GridView.delayRemove)
+                    if (! modelDelegate.GridView.delayRemove)
                         theModel.remove(index)
                 }
             }
