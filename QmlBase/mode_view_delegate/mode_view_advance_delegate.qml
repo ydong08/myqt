@@ -59,16 +59,79 @@ Rectangle {
                 height: 60
                 radius: 8
                  anchors.right: parent.right
-                 anchors.leftMargin: 5
+                 anchors.top: parent.top
+                 //anchors.rightMargin: 5
+                 //anchors.topMargin: 5
 
                 color: "black"
 
                 Image {
                     anchors.fill: parent
+                    fillMode: Image.PreserveAspectFit
                     source: imageSource
                 }
             }
-        }
 
+            MouseArea {
+                anchors.fill: parent
+                onClicked: parent.state = "expand"
+            }
+
+            Item {
+                id: viewfacts
+                anchors.top: viewpicture.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+
+                opacity: 0
+
+                 Rectangle {
+                    anchors.fill: parent
+                    color: "yellow"
+                    Text {
+                        anchors.fill: parent
+                        anchors.margins: 20
+                        clip: true
+                        wrapMode: Text.WordWrap
+                        font {family: "Calibri"; pointSize: 12}
+                        text: facts
+                    }
+                 }
+            }
+
+            Rectangle {
+                id: closeButton
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.rightMargin: 5
+                anchors.topMargin: 5
+
+                width: 10
+                height: 10
+                opacity: 0
+                color: "red"
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "X"
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: wraper.state = ""
+                }
+            }
+
+            states: [
+                State {
+                    name: "expand"
+                    PropertyChanges {target: wraper; height: ListView.view.height}
+                    //PropertyChanges {target: viewpicture; }
+                    PropertyChanges {target: viewfacts; opacity: 1}
+                    PropertyChanges {target: closeButton; opacity: 1}
+                }
+            ]
+        }
     }
 }
