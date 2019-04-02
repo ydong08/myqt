@@ -64,7 +64,7 @@ Rectangle {
                  //anchors.rightMargin: 5
                  //anchors.topMargin: 5
 
-                color: "black"
+                color: "lightblue"
 
                 Image {
                     anchors.fill: parent
@@ -108,13 +108,15 @@ Rectangle {
                 anchors.rightMargin: 5
                 anchors.topMargin: 5
 
-                width: 10
-                height: 10
+                width: 50
+                height: 50
+                radius: 8
                 opacity: 0
-                color: "red"
+                color: "lightblue"
 
                 Text {
                     anchors.centerIn: parent
+                    font.pointSize: 24
                     text: "X"
                 }
 
@@ -128,7 +130,7 @@ Rectangle {
                 State {
                     name: "expand"
                     PropertyChanges {target: wraper; height: listview.height}
-                    PropertyChanges {target: viewpicture; width:listview.width; height: listview.width; anchors.topMargin:0; anchors.rightMargin: 0}
+                    PropertyChanges {target: viewpicture; width:listview.width; height: listview.width; anchors.topMargin:60; anchors.rightMargin: 0}
                     PropertyChanges {target: viewfacts; opacity: 1}
                     PropertyChanges {target: closeButton; opacity: 1}
                     //PropertyChanges { target: wrapper.ListView.view; contentY: wrapper.y; interactive: false }
